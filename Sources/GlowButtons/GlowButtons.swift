@@ -2,7 +2,7 @@
 // https://docs.swift.org/swift-book
 import SwiftUI
 
-public struct GButton: View{
+internal struct GButton: View{
     public var body: some View{
         VStack{
             HStack{
