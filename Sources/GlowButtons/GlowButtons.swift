@@ -11,19 +11,19 @@ public struct GlowButtonConfiguration{
     
     public let cornerRadius: CGFloat
     
-//    internal init(text: String, image: String, showGlow: Bool, color: Color, cornerRadius: CGFloat) {
-//        self.text = text
-//        self.image = image
-//        self.showGlow = showGlow
-//        self.color = color
-//        self.cornerRadius = cornerRadius
-//    }
-    
-    public init(text: String = "Heart", image: String = "Heart", showGlow: Bool = true, color: Color = .red, cornerRadius: CGFloat = 10) {
-        self.init(
-            text: text, image: image, showGlow: showGlow, color: color, cornerRadius: cornerRadius
-        )
+    public init(text: String, image: String, showGlow: Bool, color: Color, cornerRadius: CGFloat) {
+        self.text = text
+        self.image = image
+        self.showGlow = showGlow
+        self.color = color
+        self.cornerRadius = cornerRadius
     }
+    
+//    public init(text: String = "Heart", image: String = "Heart", showGlow: Bool = true, color: Color = .red, cornerRadius: CGFloat = 10) {
+//        self.init(
+//            text: text, image: image, showGlow: showGlow, color: color, cornerRadius: cornerRadius
+//        )
+//    }
 }
 
 public struct GButton: View{
