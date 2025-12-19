@@ -11,35 +11,44 @@ public struct GlowButtonConfiguration{
     
     public let cornerRadius: CGFloat
     
-    public init(text: String, image: String, showGlow: Bool, color: Color, cornerRadius: CGFloat) {
+//    public init(text: String, image: String, showGlow: Bool, color: Color, cornerRadius: CGFloat) {
+//        self.text = text
+//        self.image = image
+//        self.showGlow = showGlow
+//        self.color = color
+//        self.cornerRadius = cornerRadius
+//    }
+    
+    public init(text: String = "Heart", image: String = "heart", showGlow: Bool = true, color: Color = .red, cornerRadius: CGFloat = 10) {
+//        self.init(
+//            text: text, image: image, showGlow: showGlow, color: color, cornerRadius: cornerRadius
+//        )
         self.text = text
         self.image = image
         self.showGlow = showGlow
         self.color = color
         self.cornerRadius = cornerRadius
     }
-    
-//    public init(text: String = "Heart", image: String = "Heart", showGlow: Bool = true, color: Color = .red, cornerRadius: CGFloat = 10) {
-//        self.init(
-//            text: text, image: image, showGlow: showGlow, color: color, cornerRadius: cornerRadius
-//        )
-//    }
 }
 
 public struct GButton: View{
+    private let config: GlowButtonConfiguration
+    public init (config: GlowButtonConfiguration = GlowButtonConfiguration()){
+        self.config = config
+    }
     public var body: some View{
         VStack{
             HStack{
-                Image(systemName: "heart")
-                Text("Hearts")
+                Image(systemName: config.image)
+                Text(config.text)
             }
         }
         .padding()
-        .cornerRadius(50)
+        .cornerRadius(config.cornerRadius)
         .overlay(
-            RoundedRectangle(cornerRadius: 50)
-                .stroke(.red)
-                .shadow(color: .red, radius: 2)
+            RoundedRectangle(cornerRadius: config.cornerRadius)
+                .stroke(config.color)
+                .shadow(color: config.color, radius: 2)
         )
     }
 }
@@ -47,5 +56,7 @@ public struct GButton: View{
 
 #Preview {
 //    GlowButton()
+    let config = GlowButtonConfiguration(text: "manual", image: "pencil", color: .blue, cornerRadius: 10)
+    GButton(config: config)
     GButton()
 }
